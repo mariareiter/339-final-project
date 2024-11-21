@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/logo1.png">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href = "#discovermain" class = "skip">Skip to Main Content</a>
+        <nav>
+            <ul class="nav">
+                <li id="title">MUSIC REVIEWER</li>
+                <li><a href = "index.html">Home</a></li>
+                <li class="active"><a href = "explore.html">Explore</a></li>
+                <li><a href = "profile.html">Profile</a></li>
+                <button id="darkModeToggle" class="dark-mode-button">Enable Dark Mode</button>
+            </ul>
+        </nav>              
+        
+    </header>
+    <main id="discovermain">
+        <h1 id="discovertitle">Explore new music</h1> 
+
+        <div id="displayImg" class="display-section">
+            <h1 id="imgName">Click on an item to see details</h1>
+            <p id="imgDesc">Description will appear here</p>
+            <div id="imgPlayer">Music player or link will appear here</div>
+        </div>
+            <!-- Selected Album Display Section -->
+            <div id="selectedAlbum" class="display-section">
+                <div class="album-cover">
+                    <img id="displayCover" src="images/afterhours-theweeknd.jpg" alt="After Hours by The Weeknd">
+                </div>
+                <h3 id="albumTitle">After Hours // The Weeknd</h3>
+                <p id="albumDescription">The overall sound of the album explores themes of heartbreak, melancholy, and redemption. A dark yet vibrant pop album with retro influences.</p>
+                <a id="spotifyLink" href="https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj" target="_blank">Listen on Spotify</a>
+            </div>
+        
+            <div id="albumheader">
+                <h2>Albums</h2>
+            </div>
+
+            <!-- Albums Gallery -->
+            <div class="album-container">
+                <div class="album-item thumbnail" 
+                     data-title="After Hours // The Weeknd"
+                     data-description="The overall sound of the album explores themes of heartbreak, melancholy, and redemption. A dark yet vibrant pop album with retro influences."
+                     data-link="https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj">
+                    <img src="images/afterhours-theweeknd.jpg" alt="Cover of the Spotify album: After Hours by The Weeknd">
+                </div>
+                <div class="album-item thumbnail" 
+                     data-title="Cruel Summer // Taylor Swift"
+                     data-description="An experimental pop album with emotional undertones, showcasing Taylor's versatile vocal abilities."
+                     data-link="https://open.spotify.com/album/1NAmidJlEaVgA3MpcPFYGq">
+                    <img src="images/cruelsummer-taylorswift.jpg" alt="Cover of the Spotify album: Cruel Summer by Taylor Swift">
+                </div>
+                <div class="album-item thumbnail" 
+                     data-title="Fine Line // Harry Styles"
+                     data-description="A fresh take on modern pop with elements of classic rock and introspective lyrics."
+                     data-link="https://open.spotify.com/album/7xV2TzoaVc0ycW7fwBwAml">
+                    <img src="images/fineline-harrystyles.jpg" alt="Cover of the Spotify album: Fine Line by Harry Styles">
+                </div>
+                <div class="album-item thumbnail" 
+                     data-title="Starboy // The Weekend"
+                     data-description="A sprawling and ambitious album that dives deep into themes of love, loss, and self-discovery."
+                     data-link="https://open.spotify.com/album/2ODvWsOgouMbaA5xf0RkJe">
+                    <img src="images/starboy-theweekend.jpg" alt="Cover of the Spotify album: Starboy by The Weekend">
+                </div>
+            </div>
+
+            <div class="spotify-button-container2">
+                <a href="https://open.spotify.com/section/0JQ5DAnM3wGh0gz1MXnu3B" target="_blank" class="spotify-button" aria-label="Visit Spotify">
+                    Check out more popular albums
+                </a>
+            </div>
+
+            <!-- Songs Gallery -->
+            <div id="songheader">
+                <h2>Songs</h2>
+            </div>
+
+            <div class="album-container">
+                <div class="album-item thumbnail"
+                     data-title="Bohemian Rapsody // Queen"
+                     data-description="The song parodies elements of opera with bombastic choruses, sarcastic recitative, and distorted Italian operatic phrases."
+                     data-link="https://open.spotify.com/track/6l8GvAyoUZwWDgF1e4822w">
+                    <img src="images/bohemian-queen.jpg" alt="Cover of the Spotify song: Bohemian Rapsody by Queen">
+                </div>
+                <div class="album-item thumbnail"
+                     data-title="Greedy // Tate McRae"
+                     data-description="We started writing this really sassy song about the feeling of having utter confidence being like, ‘Yeah, it takes a lot to really get me to open up.’ And it ended up feeling like this really cool female empowerment song, which I loved. - Tate McRae"
+                     data-link="https://open.spotify.com/track/3rUGC1vUpkDG9CZFHMur1t">
+                    <img src="images/greedy-tate.jpg" alt="Cover of the Spotify song: Greedy by Tate McRae">
+                </div>
+                <div class="album-item thumbnail"
+                    data-title="Yellow // Coldplay"
+                    data-description="Alternative rock, post-Britpop, and pop rock. The song is about devotion and is often interpreted as melancholy, though many fans consider it upbeat."
+                    data-link="https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg">
+                    <img src="images/yellow-coldplay.jpg" alt="Cover of the Spotify song: Yellow by Coldplay">
+                </div>
+                <div class="album-item thumbnail"
+                    data-title="Come Back to Earth // Mac Miller"
+                    data-description="A soulful and introspective track that opens Mac Miller's Swimming album, touching on themes of vulnerability and hope."
+                    data-link="https://open.spotify.com/track/01z2fBGB8Hl3Jd3zXe4IXR">
+                    <img src="images/swimming-macmiller.jpg" alt="Cover of the Spotify song: Come Back to Earth by Mac Miller">
+                </div>
+            </div>
+       
+            <div class="spotify-button-container2">
+                <a href="https://open.spotify.com/genre/0JQ5DAqbMKFGaKcChsSgUO" target="_blank" class="spotify-button" aria-label="Visit Spotify">
+                    Check out new realeased songs
+                </a>
+            </div>
+
+            <!-- Playlists Section -->
+            <div id="playlistheader">
+                <h2>Playlists</h2>
+            </div>
+
+            <div class="album-container">
+                <div class="album-item thumbnail" 
+                    data-title="Christmas Hits"
+                    data-description="The biggest Christmas songs of all time."
+                    data-link="https://open.spotify.com/playlist/37i9dQZF1DX0Yxoavh5qJV">
+                    <img src="images/christmas-hits.jpg" alt="Cover of the Spotify playlist: Christmas Hits">
+                </div>
+                <div class="album-item thumbnail" 
+                    data-title="Rap Playlist 2024"
+                    data-description="The hottest new hip hop/rap tracks on Spotify."
+                    data-link="https://open.spotify.com/playlist/4nZo2X8iHrwhYBYdKvysgI">
+                    <img src="images/rap.jpg" alt="Cover of the Spotify playlist: Rap Playlist 2024">
+                </div>
+                <div class="album-item thumbnail" 
+                     data-title="Chill Acoustic Covers"
+                     data-description="The best chill covers on Spotify."
+                     data-link="https://open.spotify.com/playlist/07wqTTsUAUEaHwVZB5sCKP">
+                     <img src="images/acousticcovers.jpg" alt="Cover of the Spotify playlist: Chill Acoustic Covers">
+                </div>
+                <div class="album-item thumbnail" 
+                     data-title="Throwback Jams"
+                     data-description="Some songs just never get old, enjoy some good oldies that will absolutely boost your mood!"
+                     data-link="https://open.spotify.com/playlist/37i9dQZF1DX8ky12eWIvcW">
+                     <img src="images/throwbackjams.jpg" alt="Cover of the Spotify playlist: Throwback Jams">
+                </div>
+            </div>
+
+            <div class="spotify-button-container2">
+                <a href="https://open.spotify.com/section/0JQ5DAuChZYPe9iDhh2mJz" target="_blank" class="spotify-button" aria-label="Visit Spotify">
+                    Check out more popular playlists
+                </a>
+            </div>
+
+            <!-- Artists Section -->
+            <div id="artistheader">
+                <h2>Artists</h2>
+            </div>
+            <div class="album-container">
+                <div class="album-item thumbnail"
+                    data-title="Ariana Grande"
+                    data-description="Ariana Grande is an award-winning pop artist known for her powerful vocals and chart-topping hits."
+                    data-link="https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR">
+                    <img src="images/arianagrande.jpg" alt="Ariana Grande">
+                </div>
+                <div class="album-item thumbnail"
+                    data-title="The Weeknd"
+                    data-description="The Weeknd is a global sensation known for his genre-blending music and captivating live performances."
+                    data-link="https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ">
+                    <img src="images/theweekend.jpg" alt="The Weeknd">
+                </div>
+                <div class="album-item thumbnail"
+                    data-title="Taylor Swift"
+                    data-description="Taylor Swift is a critically acclaimed singer-songwriter celebrated for her storytelling and groundbreaking albums."
+                    data-link="https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02">
+                    <img src="images/taylorswift.jpg" alt="Taylor Swift">
+                </div>
+                <div class="album-item thumbnail"
+                    data-title="Harry Styles"
+                    data-description="Harry Styles is a former boy band member turned solo artist known for his genre-defying music and unique style."
+                    data-link="https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3">
+                    <img src="images/harrystyles.jpg" alt="Harry Styles">
+                </div>
+            </div>
+
+            <div class="spotify-button-container2">
+                <a href="https://open.spotify.com/section/0JQ5DAnM3wGh0gz1MXnu3C" target="_blank" class="spotify-button" aria-label="Visit Spotify">
+                    Check out most relevant artists at the moment
+                </a>
+            </div>
+
+
+    </main>
+    <script src="js/discover.js"></script>
+    <script src="js/functions.js"></script>
+
+    <script src="js/lightbox-plus-jquery.js"></script>
+      <script>
+        lightbox.option({
+          'resizeDuration': 10,
+          'wrapAround': true,
+          'positionFromTop': 100
+        })
+    </script>
+    
+   <footer class="footer">
+        <div class="footer_socials">
+            <a href="https://www.instagram.com/mariareiterr/?hl=en" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://open.spotify.com/user/mary.rider" aria-label="spotify"><i class="fa-brands fa-spotify"></i></a>
+            <a href="mailto:mreiterh@umich.edu" aria-label="mail"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/feed/" aria-label="linkedin"><i class="fa-brands fa-linkedin"></i></a> 
+            <a href="https://github.com/mariareiter?tab=repositories" aria-label="github link"><i class="fa-brands fa-github" ></i></a>
+        </div>
+        <div class="footer_info">    
+            <a href="index.html">Home / </a>
+            <a href="explore.html">Explore / </a>
+            <a href="profile.html">Profile / </a>
+        </div>
+
+        <p> UNIVERSITY OF MICHIGAN SCHOOL OF INFORMATION <br>© MARIA REITER - si 339 2024</p>
+   </footer>
+</body>
+</html>
