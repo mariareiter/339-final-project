@@ -1,101 +1,105 @@
-document.querySelector('.menu_bars').addEventListener('click', function() {
-
-    console.log("toggle menu icon on mobile")
-    this.classList.toggle("change")
-
-    var pages = document.querySelector(".nav_list")
-    var socials = document.querySelector(".socials")
-    var nav = document.querySelector("nav")
-    var name = document.querySelector(".name")
-
-    pages.classList.toggle("change")
-    socials.classList.toggle("change")
-    nav.classList.toggle("change")
-    name.classList.toggle("change")
-
-    var main = document.querySelector("main")
-    var footer = document.querySelector("footer")
-
-    if (main.style.display != "none") {
-        main.style.display = "none"
-        footer.style.display = "none"
-    }
-    else {
-        main.style.display = "block"
-        footer.style.display = "block"
-    }
-})
-
-// Check for prefers-reduced-motion setting for reduced motion users!!!
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (prefersReducedMotion) {
-    // Disable lightbox functionality for reduced motion users
-    const lightboxLinks = document.querySelectorAll('[data-lightbox="gallery"]');
-    lightboxLinks.forEach(link => {
-        link.removeAttribute('data-lightbox'); // Remove data-lightbox attribute to disable lightbox
-        link.removeAttribute('href'); // Remove href attribute to disable link
-    });
-    
-}
-
-function showMorePhotos() {
-    const gallery = document.querySelector('#gallery');
-    const button = document.querySelector('.ShowMoreButton');
-    
-    // Toggle visibility of additional photos
-    const hiddenPhotos = gallery.querySelectorAll('a:nth-child(n+9)');
-    
-    if (hiddenPhotos[0].style.display === 'none' || !hiddenPhotos[0].style.display) {
-        hiddenPhotos.forEach(photo => {
-            photo.style.display = 'block';
-        });
-        button.textContent = 'Show Less Photos'; // Update button text
-    } else {
-        hiddenPhotos.forEach(photo => {
-            photo.style.display = 'none';
-        });
-        button.textContent = 'See More Photos'; // Revert button text
-    }
-}
-
-document.querySelectorAll('img').forEach(img => {
-    img.onerror = function() {
-    this.onerror = null; 
-    this.src = '../images/profiles/default_image.jpg';
-    this.alt = "Image not available";
-
-        // Check if the parent link has lightbox attributes and remove them if this is a default image
-        const parentLink = this.closest('a[data-lightbox]');
-        if (parentLink) {
-            parentLink.removeAttribute('data-lightbox');
-            parentLink.removeAttribute('data-title');
-            parentLink.style.cursor = "default"; // Optional: Change cursor to indicate no action
-            parentLink.onclick = function(event) { event.preventDefault(); }; // Prevent default click action
-        }
-    };
-});
-
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    const body = document.body;
+    // Mobile Menu Toggle
+    const menuBars = document.querySelector('.menu_bars');
+    if (menuBars) {
+        menuBars.addEventListener('click', function () {
+            console.log("toggle menu icon on mobile");
+            this.classList.toggle("change");
 
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem("dark-mode");
-    if (savedTheme === "enabled") {
-        body.classList.add("dark-mode");
-        darkModeToggle.textContent = "Disable Dark Mode";
+            const pages = document.querySelector(".nav_list");
+            const socials = document.querySelector(".socials");
+            const nav = document.querySelector("nav");
+            const name = document.querySelector(".name");
+            const main = document.querySelector("main");
+            const footer = document.querySelector("footer");
+
+            if (pages) pages.classList.toggle("change");
+            if (socials) socials.classList.toggle("change");
+            if (nav) nav.classList.toggle("change");
+            if (name) name.classList.toggle("change");
+
+            if (main && footer) {
+                if (main.style.display !== "none") {
+                    main.style.display = "none";
+                    footer.style.display = "none";
+                } else {
+                    main.style.display = "block";
+                    footer.style.display = "block";
+                }
+            }
+        });
     }
 
-    // Toggle dark mode on button click
-    darkModeToggle.addEventListener("click", () => {
-        const isDarkMode = body.classList.toggle("dark-mode");
-        if (isDarkMode) {
-            localStorage.setItem("dark-mode", "enabled");
-            darkModeToggle.textContent = "Disable Dark Mode";
-        } else {
-            localStorage.setItem("dark-mode", "disabled");
-            darkModeToggle.textContent = "Enable Dark Mode";
-        }
+    // Reduced Motion Check
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        const lightboxLinks = document.querySelectorAll('[data-lightbox="gallery"]');
+        lightboxLinks.forEach(link => {
+            link.removeAttribute('data-lightbox');
+            link.removeAttribute('href');
+        });
+    }
+
+    // Show More Photos
+    const showMoreButton = document.querySelector('.ShowMoreButton');
+    if (showMoreButton) {
+        showMoreButton.addEventListener('click', () => {
+            const gallery = document.querySelector('#gallery');
+            if (gallery) {
+                const hiddenPhotos = gallery.querySelectorAll('a:nth-child(n+9)');
+                if (hiddenPhotos.length > 0) {
+                    const firstHiddenPhoto = hiddenPhotos[0];
+                    const isHidden = firstHiddenPhoto.style.display === 'none' || !firstHiddenPhoto.style.display;
+
+                    hiddenPhotos.forEach(photo => {
+                        photo.style.display = isHidden ? 'block' : 'none';
+                    });
+
+                    showMoreButton.textContent = isHidden ? 'Show Less Photos' : 'See More Photos';
+                }
+            }
+        });
+    }
+
+    // Image Error Handling
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function () {
+            this.onerror = null;
+            this.src = '../images/profiles/default_image.jpg';
+            this.alt = "Image not available";
+
+            const parentLink = this.closest('a[data-lightbox]');
+            if (parentLink) {
+                parentLink.removeAttribute('data-lightbox');
+                parentLink.removeAttribute('data-title');
+                parentLink.style.cursor = "default";
+                parentLink.onclick = function (event) { event.preventDefault(); };
+            }
+        };
     });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if (darkModeToggle) {
+        const body = document.body;
+
+        // Load saved theme from localStorage
+        const savedTheme = localStorage.getItem("dark-mode");
+        if (savedTheme === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.textContent = "Disable Dark Mode";
+        }
+
+        // Toggle dark mode on button click
+        darkModeToggle.addEventListener('click', () => {
+            const isDarkMode = body.classList.toggle("dark-mode");
+            if (isDarkMode) {
+                localStorage.setItem("dark-mode", "enabled");
+                darkModeToggle.textContent = "Disable Dark Mode";
+            } else {
+                localStorage.setItem("dark-mode", "disabled");
+                darkModeToggle.textContent = "Enable Dark Mode";
+            }
+        });
+    }
 });
