@@ -365,13 +365,13 @@ footer {
         filter: drop-shadow(5px 5px 10px);
         border: 2px solid black;
         border-radius: 100%;
-        height: 100px;
-        width: 100px;
+        height: 140px;
+        width: 140px;
         object-fit: cover;
     }
 
     .otherfavsongs, .otherfavalbums {
-        margin: 8%;
+        margin: 2%;
     }
 
     .otherfavsongs a, .otherfavalbums a {
@@ -462,10 +462,6 @@ footer {
     }
 
     /* My Profile Page*/
-
-    .profileheader h1{
-        display: none;
-    }
 
     /* Button Container */
     .button-container {
@@ -619,7 +615,7 @@ footer {
         align-items: center;
         font-weight: 400;
         font-size: 30px;
-        padding-left: 280px;
+        padding-left: 500px;
         color: black;
         position: relative;
         top: -90px;
@@ -714,17 +710,19 @@ footer {
 
     /* Other Profile */
     .profileheader h1{
-        display: grid;
+        display: flex;
         grid-template-columns: 100px 200px;
         column-gap: 10px;
         align-items: center;
         font-weight: 400;
         font-size: 30px;
-        padding-left: 90px;
+        padding-left: 400px;
         color: black;
         position: relative;
         top: -90px;
         margin:0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .frame {
