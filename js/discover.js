@@ -1,4 +1,4 @@
-// DISCOVER
+// EXPLORE
 var width = screen.width;
 console.log(width);
 if (width < 768) {
