@@ -38,7 +38,6 @@ if (prefersReducedMotion) {
     
 }
 
-
 function showMorePhotos() {
     const gallery = document.querySelector('#gallery');
     const button = document.querySelector('.ShowMoreButton');
