@@ -18,19 +18,19 @@
 </head>
 <body>
     <header>
-        <a href = "indexmain" class = "skip">Skip to Main Content</a>
         <nav>
             <ul class="nav">
                 <li id="title">SHARE YOUR SPOTIFY WITH FRIENDS</li> 
                 <li class="active"><a href = "index.html">Home</a></li>
                 <li><a href = "explore.html">Explore</a></li>
-                <li class="profilenav"><a href = "profile.html">Profile</a></li>
+                <li><a href = "profile.html">Profile</a></li>
                 <button id="darkModeToggle" class="dark-mode-button">Enable Dark Mode</button>
+                <a href = "#indexmain" class = "skip">Skip to Main Content</a>
             </ul>
         </nav>
     </header>
 
-    <main class="indexmain">
+    <main id="indexmain">
         <h1>Main Reviews</h1>
         <div>
             <button id="aboutbutton">About</button>    
@@ -41,7 +41,7 @@
         <div class="review1">
             <div class="review1imgs">
                 <a href="review.html">
-                    <img id='repimg' src="images/utopia-travis.jpg" alt="Cover of the album reputation by Travis Scott">
+                    <img id='repimg' src="images/utopia-travis.jpg" alt="Cover of the album Utopia by Travis Scott">
                 </a>
                 <div id="reviewtag" class="clickforreview">
                     <p>Click for a review!</p>
@@ -86,7 +86,7 @@
             <iframe class="spotifypreview" style="border-radius:12px" src="https://open.spotify.com/embed/album/3mH6qwIy9crq0I9YQbOuDf?utm_source=generator" width="400" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="album 3"></iframe>
         </div>
     </main>
-    
+
     <script src="js/index.js"></script>
     <script src="js/functions.js"></script>
     
