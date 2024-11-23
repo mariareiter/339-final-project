@@ -40,32 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Show More Photos
-    const showMoreButton = document.querySelector('.ShowMoreButton');
-    if (showMoreButton) {
-        showMoreButton.addEventListener('click', () => {
-            const gallery = document.querySelector('#gallery');
-            if (gallery) {
-                const hiddenPhotos = gallery.querySelectorAll('a:nth-child(n+9)');
-                if (hiddenPhotos.length > 0) {
-                    const firstHiddenPhoto = hiddenPhotos[0];
-                    const isHidden = firstHiddenPhoto.style.display === 'none' || !firstHiddenPhoto.style.display;
-
-                    hiddenPhotos.forEach(photo => {
-                        photo.style.display = isHidden ? 'block' : 'none';
-                    });
-
-                    showMoreButton.textContent = isHidden ? 'Show Less Photos' : 'See More Photos';
-                }
-            }
-        });
-    }
-
     // Image Error Handling
     document.querySelectorAll('img').forEach(img => {
         img.onerror = function () {
             this.onerror = null;
-            this.src = '../images/profiles/default_image.jpg';
+            this.src = '../images/default-image.jpg';
             this.alt = "Image not available";
 
             const parentLink = this.closest('a[data-lightbox]');
