@@ -36,32 +36,6 @@ window.addEventListener('load', function() {
     document.getElementById('discovertitle').style.opacity = 1;
 })
 
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    const body = document.body;
-
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem("dark-mode");
-    if (savedTheme === "enabled") {
-        body.classList.add("dark-mode");
-        darkModeToggle.textContent = "Disable Dark Mode";
-    }
-
-    // Toggle dark mode on button click
-    darkModeToggle.addEventListener("click", () => {
-        const isDarkMode = body.classList.toggle("dark-mode");
-        if (isDarkMode) {
-            localStorage.setItem("dark-mode", "enabled");
-            darkModeToggle.textContent = "Disable Dark Mode";
-        } else {
-            localStorage.setItem("dark-mode", "disabled");
-            darkModeToggle.textContent = "Enable Dark Mode";
-        }
-    });
-});
-
-
 // Select all album thumbnails
 const albumThumbnails = document.querySelectorAll('.album-item');
 
