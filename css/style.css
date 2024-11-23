@@ -9,25 +9,9 @@ body {
 }
 
 #title {
-    float: left;
+    float: inline-start;
     font-size: larger;
     font-weight: bold;
-}
-
-.skip {
-    position: absolute;
-    overflow: hidden;
-    height: 1px;
-    width: 1px;
-}
-
-.skip:focus {
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    position: relative;
 }
 
 /* -------------------- Header -------------------- */
@@ -151,12 +135,12 @@ h1 {
     color:#1DB954;
 }
 
-.indexmain {
+#indexmain {
     display: grid;
     justify-items: center;
 }
 
-.indexmain h1 {
+#indexmain h1 {
     margin-top: 20px;
     font-size: 40px;
     font-weight: bolder;
@@ -281,11 +265,6 @@ h1 {
 
 #discovermain h2 {
     font-weight: bold;
-}
-
-.discoverslides {
-    justify-content: center;
-    margin: 5% 10%;
 }
 
 .discovertext {
@@ -477,9 +456,9 @@ h1 {
 
 .spotify-button-container {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     margin: 30px auto;
-    top: 20px;
+    top:-50px;
 }
 
 .spotify-button:hover {
@@ -491,6 +470,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin: 30px auto;
+    top:-100px;
 }
 
 /* Dropdown Container */
@@ -621,13 +601,6 @@ h1 {
         justify-content: center;
     }
 
-    /* Center Spotify Button Container */
-    .spotify-button-container2 {
-        display: flex;
-        justify-content: center;
-        margin: 30px auto;
-    }
-
     /* Review */
     .reviewheader {
         grid-template-columns: 50% 50%;
@@ -638,13 +611,6 @@ h1 {
     .dropdown1 {
         width: 100px;
         justify-self: right;
-    }
-
-    .spotify-button-container {
-        display: flex;
-        justify-content: center;
-        margin: 30px auto;
-        top: 30px;
     }
 
     .spotifypreview {
@@ -720,14 +686,6 @@ h1 {
     .dropdown1 {
         width: 100px;
         justify-self: right;
-    }
-
-    .spotify-button-container {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        position: relative;
-        top: 30px;
     }
 }
 
@@ -1039,4 +997,49 @@ body.dark-mode .album-item{
         transform: scale(1.05);
         box-shadow: 0 10px 20px rgba(255, 35, 185, 0.989);
     }
+}
+
+/* --------------------- KEYBOARD NAVIGATION --------------------- */
+
+/* Add a visible focus outline for keyboard users */
+a:focus, button:focus, input:focus, .spotify-button:focus {
+    outline: 3px solid #ff26cc;
+    outline-offset: 2px;
+    border-radius: 5px;
+}
+
+.skip {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    width: auto;
+    height: auto;
+    background: #1DB954;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skip:focus {
+    outline: 2px solid white;
+    transform: scale(1.05);
+}
+
+/* Dropdown visibility on focus */
+#menu1:focus-within, #menu2:focus-within {
+    display: block;
+}
+
+/* Menu items focus styles */
+.dropdown1 a:focus, .dropdown2 a:focus {
+    background-color: #ad0865dc;
+    color: white;
+}
+
+button:focus {
+    outline: 2px dashed #ffebef;
+    outline-offset: 2px;
+    box-shadow: 0 0 5px #ffebef;
 }
