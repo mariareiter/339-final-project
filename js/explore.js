@@ -1,83 +1,51 @@
-// EXPLORE
-var width = screen.width;
-console.log(width);
-if (width < 768) {
-    let slideIndex = [1,1,1];
-    let slideId = ["album-prev", "song-prev", "playlist-prev"]
-    showSlides(1, 0);
-    showSlides(1, 1);
-    showSlides(1, 2);
-
-    function plusSlides(n, no) {
-    showSlides(slideIndex[no] += n, no);
+// Ensure animations and updates work on all devices
+window.addEventListener('load', function () {
+    const discoverTitle = document.getElementById('discovertitle');
+    if (discoverTitle) {
+        discoverTitle.style.opacity = 1; // Fade in the title
     }
-
-    function showSlides(n, no) {
-    let i;
-    let x = document.getElementsByClassName(slideId[no]);
-    if (n > x.length) {slideIndex[no] = 1}    
-    if (n < 2) {slideIndex[no] = x.length}
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
-    }
-    x[slideIndex[no]-1].style.display = "block";  
-    }
-
-}
-
-else {
-    var grids = document.getElementsByClassName("discoverslides");
-    for (var i=0;i<grids.length;i+=1){
-        grids[i].style.display = 'grid';
-      }
-}
-
-window.addEventListener('load', function() {
-    document.getElementById('discovertitle').style.opacity = 1;
-})
-
-// Select all album thumbnails
-const albumThumbnails = document.querySelectorAll('.album-item');
-
-// Event listener for each thumbnail
-albumThumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener('click', function () {
-        // Update the display section with album details
-        const displayCover = document.querySelector('#displayCover');
-        const albumTitle = document.querySelector('#albumTitle');
-        const albumDescription = document.querySelector('#albumDescription');
-        const spotifyLink = document.querySelector('#spotifyLink');
-
-        displayCover.src = this.querySelector('img').src;
-        displayCover.alt = this.querySelector('img').alt;
-        albumTitle.textContent = this.dataset.title;
-        albumDescription.textContent = this.dataset.description;
-        spotifyLink.href = this.dataset.link;
-    });
 });
 
-// Update display section for artists
+// Function to handle thumbnail clicks
+function updateDisplaySection(thumbnail, displayCoverId, titleId, descriptionId, linkId) {
+    const displayCover = document.querySelector(displayCoverId);
+    const titleElement = document.querySelector(titleId);
+    const descriptionElement = document.querySelector(descriptionId);
+    const spotifyLink = document.querySelector(linkId);
+
+    if (displayCover && titleElement && descriptionElement && spotifyLink) {
+        displayCover.src = thumbnail.querySelector('img').src;
+        displayCover.alt = thumbnail.querySelector('img').alt;
+        titleElement.textContent = thumbnail.dataset.title;
+        descriptionElement.textContent = thumbnail.dataset.description;
+        spotifyLink.href = thumbnail.dataset.link;
+    }
+}
+
+// Add event listeners for albums
+const albumThumbnails = document.querySelectorAll('.album-item');
+albumThumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', () => updateDisplaySection(thumbnail, '#displayCover', '#albumTitle', '#albumDescription', '#spotifyLink'));
+
+    // Add support for touch devices
+    thumbnail.addEventListener('pointerdown', () => updateDisplaySection(thumbnail, '#displayCover', '#albumTitle', '#albumDescription', '#spotifyLink'));
+});
+
+// Add event listeners for artists
 const artistThumbnails = document.querySelectorAll('.artist-item');
 artistThumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener('click', function () {
-        const displayCover = document.querySelector('#displayArtistCover');
-        const artistTitle = document.querySelector('#displayArtistCover + .discovertext p');
-        const artistDescription = document.querySelector('#artistDescription');
-        const spotifyLink = document.querySelector('#spotifyArtistLink');
+    thumbnail.addEventListener('click', () => updateDisplaySection(thumbnail, '#displayArtistCover', '#displayArtistCover + .discovertext p', '#artistDescription', '#spotifyArtistLink'));
 
-        displayCover.src = this.querySelector('img').src;
-        displayCover.alt = this.querySelector('img').alt;
-        artistTitle.textContent = this.dataset.title;
-        artistDescription.textContent = this.dataset.description;
-        spotifyLink.href = this.dataset.link;
-    });
+    // Add support for touch devices
+    thumbnail.addEventListener('pointerdown', () => updateDisplaySection(thumbnail, '#displayArtistCover', '#displayArtistCover + .discovertext p', '#artistDescription', '#spotifyArtistLink'));
 });
 
-
+// Simulate a click on the first album to pre-fill the display section
 window.addEventListener('DOMContentLoaded', () => {
     if (albumThumbnails.length > 0) {
-        albumThumbnails[0].click(); // Simulate click on the first album
+        albumThumbnails[0].dispatchEvent(new Event('click', { bubbles: true }));
     }
 });
+
 
 
