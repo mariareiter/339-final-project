@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuBars = document.querySelector('.menu_bars');
     if (menuBars) {
         menuBars.addEventListener('click', function () {
-            console.log("toggle menu icon on mobile");
+            console.log("Toggle menu icon on mobile");
             this.classList.toggle("change");
 
             const pages = document.querySelector(".nav_list");
@@ -57,28 +57,59 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
 
-    // Dark Mode Toggle
+    // Dark Mode Toggle with System Preference Support
     const darkModeToggle = document.getElementById("darkModeToggle");
-    if (darkModeToggle) {
-        const body = document.body;
+    const body = document.body;
 
-        // Load saved theme from localStorage
-        const savedTheme = localStorage.getItem("dark-mode");
+    // Function to apply dark mode
+    const enableDarkMode = () => {
+        body.classList.add("dark-mode");
+        localStorage.setItem("dark-mode", "enabled");
+        if (darkModeToggle) darkModeToggle.textContent = "Disable Dark Mode";
+    };
+
+    // Function to disable dark mode
+    const disableDarkMode = () => {
+        body.classList.remove("dark-mode");
+        localStorage.setItem("dark-mode", "disabled");
+        if (darkModeToggle) darkModeToggle.textContent = "Enable Dark Mode";
+    };
+
+    // Check saved preference in localStorage
+    const savedTheme = localStorage.getItem("dark-mode");
+
+    if (savedTheme) {
+        // Apply saved theme
         if (savedTheme === "enabled") {
-            body.classList.add("dark-mode");
-            darkModeToggle.textContent = "Disable Dark Mode";
+            enableDarkMode();
+        } else {
+            disableDarkMode();
         }
+    } else {
+        // No saved preference, use system preference
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+            enableDarkMode();
+        }
+    }
 
-        // Toggle dark mode on button click
+    // Toggle dark mode on button click
+    if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
-            const isDarkMode = body.classList.toggle("dark-mode");
-            if (isDarkMode) {
-                localStorage.setItem("dark-mode", "enabled");
-                darkModeToggle.textContent = "Disable Dark Mode";
+            if (body.classList.contains("dark-mode")) {
+                disableDarkMode();
             } else {
-                localStorage.setItem("dark-mode", "disabled");
-                darkModeToggle.textContent = "Enable Dark Mode";
+                enableDarkMode();
             }
         });
     }
+
+    // Listen for system preference changes and adapt
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (e.matches) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
 });
