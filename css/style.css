@@ -14,7 +14,7 @@ body {
     font-weight: bold;
 }
 
-/* -------------------- Header -------------------- */
+/* ----------- Header --------- */
 h1{
     text-align: center;
     font-family:"copperplate" ;
@@ -335,8 +335,8 @@ h1 {
     filter: drop-shadow(5px 5px 10px);
     border: 2px solid black;
     border-radius: 100%;
-    height: 140px;
-    width: 140px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
 }
 
@@ -431,6 +431,24 @@ h1 {
     width: 200px;
 }
 
+.showbutton {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #267347;
+    color: white;
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+.showbutton:hover {
+    background-color: #267347; 
+}
+
 .button-container {
     display: flex;
     margin-top: 10px;
@@ -447,7 +465,7 @@ h1 {
     font-family: 'Sour Gummy', sans-serif;
     text-decoration: none;
     color: white;
-    background-color: #1db954d0;
+    background-color: #267347;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -462,7 +480,7 @@ h1 {
 }
 
 .spotify-button:hover {
-    background-color: #17a742e3;
+    background-color: #267347;
     transform: scale(1.05);
 }
 
@@ -559,7 +577,6 @@ h1 {
 /* -------------------TABLET VIEW --------------------*/
 
 @media screen and (min-width: 768px) {
-    /* Home */
     .review1, .review2, .review3 {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -574,7 +591,6 @@ h1 {
     }
 
     /* Other Profile */
-
     .profileheader h1{
         display: grid;
         grid-template-columns: 100px 200px;
@@ -623,7 +639,6 @@ h1 {
 /* ------------------DESKTOP VIEW -----------------*/
 
 @media screen and (min-width: 1024px) {
-    /* Home */
     .indexmain {
         margin: 0 10%;
     }
@@ -897,7 +912,7 @@ body.dark-mode #albumDescription{
     text-decoration: none;
     font-weight: bold;
     color: whitesmoke;
-    background-color: #1db954ce;
+    background-color: #267347;
     padding: 8px 12px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -905,7 +920,7 @@ body.dark-mode #albumDescription{
 
 #spotifyLink:hover{
     color: #fff;
-    background-color: #1DB954;
+    background-color: #267347;
 }
 
 /* --------------- Albums Gallery -------------*/
@@ -1015,9 +1030,8 @@ a:focus, button:focus, input:focus, .spotify-button:focus {
     border: none;
     width: auto;
     height: auto;
-    background: #267347;
+    background:#267347;
     color: white;
-    padding: 8px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -1043,3 +1057,4 @@ button:focus {
     outline-offset: 2px;
     box-shadow: 0 0 5px #ffebef;
 }
+
