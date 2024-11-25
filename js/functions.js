@@ -113,3 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+if (body.classList.contains('dark-mode')) {
+    footer.style.backgroundColor = '#444'; // Dark mode
+    footer.style.color = '#eaeaea';
+} else {
+    footer.style.backgroundColor = '#ffebef'; // Light mode
+    footer.style.color = '#413e3e';
+}
